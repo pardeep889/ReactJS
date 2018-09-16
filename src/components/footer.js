@@ -12,22 +12,34 @@ class Footer extends React.Component{
       
         console.log('i was clicked')
     }
+
     getText(event){
         this.setState({
-            keywords:event.target.value
+            keywords:event.target.value            
         })
         // console.log(event.target.value)
         // console.log('i was clicked')
     }
     render(){
-        // console.log('i am rendering');
+        const style1 = {
+            background: 'blue'
+        };
+        console.log('i am rendering');
         console.log(this.state.keywords);
+
+        if(this.state.keywords === ''){
+            style1.background = 'red'
+        }
+        // else{
+        //     style1.background = 'green'
+        // }
+
         return(
             <footer className='text-center'>
                 <div className='footer' onClick={this.myclickFunction}>
                     Copyright &copy 2018
                 </div>
-                <div>
+                <div style={style1}>
                     <input type='text' onChange={this.getText.bind(this)}/>
                 </div>
             </footer>

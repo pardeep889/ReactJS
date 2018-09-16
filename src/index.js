@@ -34,25 +34,30 @@ ReactDOM.render(<App/>,document.querySelector('#nav')); // without function
 
 const App1 =()=>{
     return (
-    <section>
-    <h1>Date and Time is: {Date()}</h1>
+    <section className="container text-center jumbotron">
+    <h5>Date and Time is: {Date()}</h5>
     <div className="test">Timestamp is: {Date.now()}</div>
     <div className="year"> Current Year is: {getYear()}</div>
     </section>
     )
 }
-
-
-
 // other way to create a component
 const App2 =()=>{
     return React.createElement('div',{className: 'container'},'I am inside container class');
 }
 
+// for style
+const style = {
+    background: 'orange',
+    textAlign: 'center',
+    height: 50,
+    padding:10
+}
+
 // Components  call functional
 const App3 = () =>{
     return (      
-            <div>Head</div>     
+            <div style={style}> Notice: <b> We will be down for tommorow </b></div>     
         )
 }
 // class based component call (footer)
