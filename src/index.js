@@ -80,4 +80,4 @@ ReactDOM.render(<App2/>,document.querySelector('#section-3'));
 ReactDOM.render(<App3/>,document.querySelector('#header'));
 ReactDOM.render(<App4/>,document.querySelector('#footer'));
 
-//watch 13th vedio section 2
+//watch 16th vedio section 2

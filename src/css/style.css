@@ -4,3 +4,6 @@ body{
 .footer{
     text-align: center;
 }
+.news_item{
+    background: red;
+}
