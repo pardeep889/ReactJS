@@ -1,6 +1,6 @@
 import React from 'react';
 // class based component
-import '../css/style.css'
+import classes from '../css/style.css'
 
 class Footer extends React.Component{
 
@@ -21,6 +21,7 @@ class Footer extends React.Component{
         // console.log('i was clicked')
     }
     render(){
+        console.log(this.props.keywords);
         const style1 = {
             background: 'blue'
         };
@@ -34,9 +35,9 @@ class Footer extends React.Component{
         //     style1.background = 'green'
         // }
 
-        return(
+        return(        
             <footer className='text-center'>
-                <div className='footer' onClick={this.myclickFunction}>
+                <div className={classes.footer} onClick={this.myclickFunction}>
                     Copyright &copy 2018
                 </div>
                 <div style={style1}>

@@ -3,7 +3,11 @@ body{
 }
 .footer{
     text-align: center;
+    background-color: cyan;
 }
 .news_item{
-    background: red;
+    padding:20px;
+    box-sizing: border-box;
+    border-bottom: 1px solid grey;
+    text-align:justify 
 }

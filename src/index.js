@@ -4,20 +4,33 @@ import './index.css';
 import Header from './components/header';
 import Footer from './components/footer';
 import NewsList from './components/news_list';
+// import SearchBar from './components/search_bar';
 import JSON   from './db.json';
 
 
-//class based component start for sending data to all components
+//class based component start for sending data to all components with props
 class App extends React.Component {
     state = {
-        news:JSON
+        news:JSON,
+        filtered: []
+    }
+    getKeys = (event) =>{
+        let Keyword = event.target.value;
+        // console.log(event.target.value)
+        let filtered = this.state.news.filter((item) => {
+            return item.title.indexOf(Keyword) > -1
+        });
+        this.setState({
+            filtered
+        })
+        // console.log(filtered)
     }
     render(){
         // console.log(this.state.news);
         return(
             <div>
-                <Header/>       
-                <NewsList news = {this.state.news}/>
+                <Header getkeys = {this.getKeys}/>       
+                <NewsList news = {this.state.filtered.length === 0 ? this.state.news : this.state.filtered}/>
             </div>
         )
     }
@@ -28,8 +41,29 @@ class App extends React.Component {
 //       )
 // }
 // ReactDOM.render(<App5/>,document.querySelector('#main')); // with function
-ReactDOM.render(<App/>,document.querySelector('#nav')); // without function
+ReactDOM.render(<App/>,document.querySelector('#main')); // without function
 // end
+
+
+
+// for filters first 
+// class Searchbar extends React.Component{
+//     getKeys = (event) =>{
+//         let Keyword = event.target.value;
+//         // console.log(event.target.value)
+//         let filtered = JSON.filter(()=>{
+//             return JSON.title.indexOf(Keyword);
+//         });
+//         console.log(filtered)
+//     }
+//     render(){
+//         return(
+//             <SearchBar getkeys = {this.getKeys}/>
+//         )
+//     }
+// }
+// ReactDOM.render(<Searchbar/>, document.querySelector('#search-bar'));
+//end of filters
 
 
 const App1 =()=>{
@@ -60,10 +94,14 @@ const App3 = () =>{
             <div style={style}> Notice: <b> We will be down for tommorow </b></div>     
         )
 }
+
+// getKeyword=()=>{
+//     console.log('test')
+// }
 // class based component call (footer)
 const App4 = ()=>{
     return (
-        <Footer/>
+        <Footer keywords={this.getKeyword}/>
     )
 }
 
@@ -80,4 +118,4 @@ ReactDOM.render(<App2/>,document.querySelector('#section-3'));
 ReactDOM.render(<App3/>,document.querySelector('#header'));
 ReactDOM.render(<App4/>,document.querySelector('#footer'));
 
-//watch 16th vedio section 2
+//watch last vedio section 2 for filters

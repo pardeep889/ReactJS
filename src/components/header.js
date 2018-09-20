@@ -1,6 +1,6 @@
 import React from 'react';
 // functional based components
-const Header = ()=>{
+const Header = (props)=>{
     return (
         <nav className="navbar navbar-inverse">
             <div className="container-fluid">
@@ -14,6 +14,7 @@ const Header = ()=>{
                 <li><a >Page 3</a></li>
                 </ul>
             </div>
+            <input type='text' onChange={props.getkeys} className='form-control' placeholder='search item...'/>
         </nav>
     )
 }
